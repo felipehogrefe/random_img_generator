@@ -34,35 +34,44 @@ class PointTool:
             return NORTH_BOUNDARY
         if point[1] == self.max_y:
             return SOUTH_BOUNDARY
+        return 0
 
+    def northwest_point(self, point):
+        if point[0] - 1 >= 0 and point[1] - 1 >= 0:
+            return point[0] - 1, point[1] - 1
+        return 0
 
-def northwest_point(point):
-    return point[0] - 1, point[1] - 1
+    def north_point(self, point):
+        if point[1] - 1 >= 0:
+            return point[0], point[1] - 1
+        return 0
 
+    def northeast_point(self, point):
+        if point[0] + 1 < self.max_x and point[1] - 1 >= 0:
+            return point[0] + 1, point[1] - 1
+        return 0
 
-def north_point(point):
-    return point[0], point[1] + 1
+    def west_point(self, point):
+        if point[0] - 1 >= 0:
+            return point[0] - 1, point[1]
+        return 0
 
+    def east_point(self, point):
+        if point[0] + 1 < self.max_x:
+            return point[0] + 1, point[1]
+        return 0
 
-def northeast_point(point):
-    return point[0] + 1, point[1] - 1
+    def southwest_point(self, point):
+        if point[0] - 1 >= 0 and point[1] + 1 < self.max_y:
+            return point[0] - 1, point[1] + 1
+        return 0
 
+    def south_point(self, point):
+        if point[1] + 1 < self.max_y:
+            return point[0], point[1] + 1
+        return 0
 
-def west_point(point):
-    return point[0] - 1, point[1]
-
-
-def east_point(point):
-    return point[0] + 1, point[1]
-
-
-def southwest_point(point):
-    return point[0] - 1, point[1] + 1
-
-
-def south_point(point):
-    return point[0], point[1] + 1
-
-
-def southeast_point(point):
-    return point[0] + 1, point[1] + 1
+    def southeast_point(self, point):
+        if point[0] + 1 < self.max_x and point[1] + 1 < self.max_y:
+            return point[0] + 1, point[1] + 1
+        return 0
